@@ -12,7 +12,7 @@ module.exports = function(webUrl, cb) {
         cb(new Error('url is required'));
         return;
     }
-    if (!/^w+:\/\//.test(webUrl)) {
+    if (!/^\w+:\/\//.test(webUrl)) {
         webUrl = 'http://' + webUrl;
     }
     var childArgs = [path.resolve(__dirname, 'phantom-capture.js'), webUrl];
