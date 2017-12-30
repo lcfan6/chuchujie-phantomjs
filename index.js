@@ -6,7 +6,7 @@ var nodeCallPhantom = require('./capturePackage/node-call-phantom');
 
 var app = express();
 
-app.get('/api/capture_webpage', function(req, res) {
+app.get('/api/capture', function(req, res) {
     var query = url.parse(req.url, true).query;
     var type = query.type;
     var webUrl = query.url;
