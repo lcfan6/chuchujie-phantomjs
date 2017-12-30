@@ -20,7 +20,7 @@ module.exports = function(webUrl, cb) {
     childProcess.execFile(
         binPath,
         childArgs,
-        { timeout: 10000, maxBuffer: 10 * 1024 * 1024 },
+        { timeout: 12000, maxBuffer: 10 * 1024 * 1024 },
         function(err, stdout, stderr) {
             if (err) {
                 cb(err);
@@ -28,17 +28,6 @@ module.exports = function(webUrl, cb) {
             }
             var img = Buffer.from(stdout, 'base64');
             cb(null, img);
-            // var f = fs.createWriteStream(
-            //     path.resolve(
-            //         __dirname,
-            //         '..',
-            //         'imgs',
-            //         Math.random()
-            //             .toString(32)
-            //             .substr(2)
-            //     ) + '.png'
-            // );
-            // f.write(img);
         }
     );
 };

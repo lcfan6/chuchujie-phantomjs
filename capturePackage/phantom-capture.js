@@ -10,10 +10,12 @@ page.customHeaders = {
 };
 
 page.open(webUrl, function(status) {
-    if (status === 'success') {
-        var base64 = page.renderBase64('png');
-        write(base64);
-    }
-    page.close();
-    phantom.exit();
+    setTimeout(function() {
+        if (status === 'success') {
+            var base64 = page.renderBase64('png');
+            write(base64);
+        }
+        page.close();
+        phantom.exit();
+    }, 1000); 
 });
