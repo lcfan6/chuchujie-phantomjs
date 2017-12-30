@@ -20,7 +20,7 @@ module.exports = function(webUrl, cb) {
     childProcess.execFile(
         binPath,
         childArgs,
-        { timeout: 12000, maxBuffer: 10 * 1024 * 1024 },
+        { timeout: 20000, maxBuffer: 10 * 1024 * 1024 },
         function(err, stdout, stderr) {
             if (err) {
                 cb(err);
