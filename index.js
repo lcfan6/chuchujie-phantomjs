@@ -8,7 +8,7 @@ var app = express();
 
 app.get('/api/capture', function(req, res) {
     var query = url.parse(req.url, true).query;
-    var type = query.type;
+    var type = query.encoding;
     var webUrl = query.url;
     nodeCallPhantom(webUrl, function(err, img) {
         if (type === 'base64') {

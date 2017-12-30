@@ -4,7 +4,7 @@
 ## 请求
 
 url >待截取网页的url
-base64 >返回数据是否为base64
+encoding >返回数据是否为base64
 
 ## 响应
 
