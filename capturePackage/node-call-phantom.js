@@ -15,10 +15,10 @@ module.exports = function(webUrl, cb) {
     if (!/^\w+:\/\//.test(webUrl)) {
         webUrl = 'http://' + webUrl;
     }
-    var childArgs = [path.resolve(__dirname, 'phantom-capture.js'), webUrl];
+    // var childArgs = [path.resolve(__dirname, 'phantom-capture.js'), webUrl];
 
     childProcess.exec(
-        `phantomjs ${path.resolve(__dirname, 'phantom-capture.js')} ${webUrl}`,
+        `${binPath} ${path.resolve(__dirname, 'phantom-capture.js')} ${webUrl}`,
         { timeout: 20000, maxBuffer: 10 * 1024 * 1024 },
         function(err, stdout, stderr) {
             if (err) {
