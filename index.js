@@ -6,6 +6,10 @@ var nodeCallPhantom = require('./capturePackage/node-call-phantom');
 
 var app = express();
 
+app.get('/', function(req, res) {
+    res.send('Hello World');
+});
+
 app.get('/api/capture', function(req, res) {
     var query = url.parse(req.url, true).query;
     var type = query.encoding;
@@ -33,7 +37,7 @@ app.get('/api/capture', function(req, res) {
             return;
         }
         if (err) {
-            res.status(404).end();
+            res.status(400).end();
         }
         res.send(img);
     });
