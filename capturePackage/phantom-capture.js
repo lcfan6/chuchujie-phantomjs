@@ -14,9 +14,10 @@ page.open(webUrl, function(status) {
         setTimeout(function () {
             var base64 = page.renderBase64('png');
         write(base64);
+        page.close();
+    phantom.exit();
         }, 5000);
         
     }
-    page.close();
-    phantom.exit();
+    
 });
