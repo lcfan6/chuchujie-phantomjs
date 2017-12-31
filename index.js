@@ -11,6 +11,9 @@ app.get('/api/capture', function(req, res) {
     var type = query.encoding;
     var webUrl = query.url;
     nodeCallPhantom(webUrl, function(err, img) {
+        if (err) {
+            throw err;
+        }
         if (type === 'base64') {
             var reply = {
                 error: 0,
