@@ -11,8 +11,11 @@ page.customHeaders = {
 
 page.open(webUrl, function(status) {
     if (status === 'success') {
-        var base64 = page.renderBase64('png');
+        setTimeout(function () {
+            var base64 = page.renderBase64('png');
         write(base64);
+        }, 5000);
+        
     }
     page.close();
     phantom.exit();
