@@ -12,7 +12,7 @@ app.get('/api/capture', function(req, res) {
     var webUrl = query.url;
     nodeCallPhantom(webUrl, function(err, img) {
         if (err) {
-            throw err;
+            console.log(err);
         }
         if (type === 'base64') {
             var reply = {
