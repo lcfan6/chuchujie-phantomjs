@@ -38,5 +38,10 @@ app.get('/api/capture', function(req, res) {
         res.send(img);
     });
 });
-
-http.createServer(app).listen(process.env.PORT || 3000);
+var server = http
+    .createServer(app)
+    .listen(process.env.PORT || 3000, function(err) {
+        var host = server.address().address;
+        var port = server.address().port;
+        console.log(host + port);
+    });
