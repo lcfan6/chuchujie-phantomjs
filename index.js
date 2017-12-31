@@ -18,7 +18,6 @@ app.get('/api/capture', function(req, res) {
         if (err) {
             console.log(err);
         }
-        console.log(img.length);
         if (type === 'base64') {
             var reply = {
                 error: 0,
