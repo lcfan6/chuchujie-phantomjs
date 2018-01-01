@@ -22,6 +22,7 @@ app.get('/api/capture', function(req, res) {
             var reply = {
                 error: 0,
                 data: {
+                    url: webUrl,
                     img: ''
                 }
             };
