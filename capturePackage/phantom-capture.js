@@ -12,10 +12,8 @@ page.open(webUrl, function(status) {
     if (status !== 'success') {
         phantom.exit(1);
     } else {
-        window.setTimeout(function() {
-            var base64 = page.renderBase64('png');
-            system.stdout.write(base64);
-            phantom.exit();
-        }, 5000);
+        var base64 = page.renderBase64('png');
+        system.stdout.write(base64);
+        phantom.exit();
     }
 });
