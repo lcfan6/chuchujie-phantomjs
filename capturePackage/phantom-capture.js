@@ -16,6 +16,6 @@ page.open(webUrl, function(status) {
             var base64 = page.renderBase64('png');
             system.stdout.write(base64);
             phantom.exit();
-        }, 1000);
+        }, 5000);
     }
 });
