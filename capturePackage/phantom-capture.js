@@ -15,11 +15,9 @@ page.open(webUrl, function(status) {
         var t = window.setInterval(function() {
             if (window.document.readyState === 'complete') {
                 window.clearInterval(t);
-                window.setTimeout(function() {
-                    var base64 = page.renderBase64('png');
-                    system.stdout.write(base64);
-                    phantom.exit();
-                }, 500);
+                var base64 = page.renderBase64('png');
+                system.stdout.write(base64);
+                phantom.exit();
             }
         }, 10);
     }
