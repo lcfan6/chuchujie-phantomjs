@@ -12,14 +12,14 @@ page.open(webUrl, function(status) {
     if (status !== 'success') {
         phantom.exit(1);
     } else {
-        var t = setInterval(function() {
-            if (document.readyState === 'complete') {
-                clearInterval(t);
-                setTimeout(function() {
+        var t = window.setInterval(function() {
+            if (window.document.readyState === 'complete') {
+                window.clearInterval(t);
+                window.setTimeout(function() {
                     var base64 = page.renderBase64('png');
                     system.stdout.write(base64);
                     phantom.exit();
-                }, 100);
+                }, 500);
             }
         }, 10);
     }
