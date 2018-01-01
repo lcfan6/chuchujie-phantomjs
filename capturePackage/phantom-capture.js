@@ -9,13 +9,11 @@ page.customHeaders = {
 };
 
 page.open(webUrl, function(status) {
-    setTimeout(function() {
-        if (status === 'success') {
-            var base64 = page.renderBase64('png');
-            // console.log(base64);   
-            system.stdout.write(base64);
-        }
-        page.close();
-        phantom.exit();
-    }, 3000);
+    if (status === 'success') {
+        var base64 = page.renderBase64('png');
+        // console.log(base64);
+        system.stdout.write(base64);
+    }
+    page.close();
+    phantom.exit();
 });
