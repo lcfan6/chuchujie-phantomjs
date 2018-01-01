@@ -1,8 +1,6 @@
 var path = require('path');
 var fs = require('fs');
 var childProcess = require('child_process');
-var phantomjs = require('phantomjs-prebuilt');
-var binPath = phantomjs.path;
 
 module.exports = function(webUrl, cb) {
     if (typeof cb !== 'function') {
@@ -17,7 +15,7 @@ module.exports = function(webUrl, cb) {
     }
 
     childProcess.exec(
-        `${binPath} ${path.resolve(__dirname, 'phantom-capture.js')} ${webUrl}`,
+        `phantomjs ${path.resolve(__dirname, 'phantom-capture.js')} ${webUrl}`,
         { timeout: 20000, maxBuffer: 10 * 1024 * 1024 },
         function(err, stdout, stderr) {
             if (err) {
