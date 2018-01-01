@@ -15,9 +15,11 @@ page.open(webUrl, function(status) {
         var t = setInterval(function() {
             if (document.readyState === 'complete') {
                 clearInterval(t);
-                var base64 = page.renderBase64('png');
-                system.stdout.write(base64);
-                phantom.exit();
+                setTimeout(function() {
+                    var base64 = page.renderBase64('png');
+                    system.stdout.write(base64);
+                    phantom.exit();
+                }, 100);
             }
         }, 10);
     }
